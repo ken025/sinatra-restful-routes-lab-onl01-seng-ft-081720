@@ -3,7 +3,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-  
+
   get '/' do
     
     erb :index
@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
     
     erb :recipes
   end
-  
+
   get '/recipes/new' do
     
     erb :new
@@ -34,7 +34,6 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(params)
-    
     redirect to "/recipes/#{@recipe.id}"
   end
 
